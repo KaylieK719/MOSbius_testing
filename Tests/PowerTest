@@ -1,0 +1,68 @@
+from display import Display
+import hardware
+from time import sleep_ms, sleep
+
+oled = Display()
+
+def directions():
+    oled.clear()
+    oled.text("-Place jumper on",  0,  0)
+    oled.text("LDOO & V+",        8, 16)
+    oled.text("-Connect LDOI to",  0, 32)
+    oled.text("power supply",     8, 48)
+    oled.show()
+    sleep(2)
+
+options = ["YES", "NO"]
+
+def showMenu(highlight):
+    oled.clear()
+    oled.text("Supply 3.3V",     0,  0)
+    oled.text("Is RED LED ON?",  0, 16)
+
+    for row, text in enumerate(options):
+        y = 32 + row * 15            
+        if row == highlight:
+            oled.fill_rect(0, y-2, oled.width, 15, 1)
+            oled.text("> " + text, 4, y, invert=True)
+        else:
+            oled.text("> " + text, 4, y, invert= False)
+
+    oled.show()
+
+def main():
+    directions()
+
+    highlight = 0
+    showMenu(highlight)
+
+    while True:
+        step = hardware.scrolling()    # –1, 0, or +1
+        if step != 0:
+            highlight = (highlight + step) % len(options)
+            showMenu(highlight)
+            sleep_ms(200)
+
+        if hardware.isPressed():
+            if options[highlight] == "YES":
+                oled.clear()
+                oled.text("Passed Power",16, 0)
+                oled.text("Test", 48,16)
+                oled.text("Returning to",16,32)
+                oled.text("menu", 48,48)
+                oled.show()
+                sleep(4)
+                break
+            else: #:NO
+                oled.clear()
+                oled.text("Test failed", 16,0)
+                oled.text("Check connection", 0, 16)
+                oled.text("Returning to",16,32)
+                oled.text("menu", 48,48)
+                oled.show()
+                sleep(4)
+                break
+        sleep_ms(50)
+
+main()
+
