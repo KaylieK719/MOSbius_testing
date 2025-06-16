@@ -1,0 +1,84 @@
+#Testing the digial level shifters on the MOSbius
+#Apply a 3.3V square wave and confirm that the oscilloscope reduces the intake voltage to a 2.5 square wave signal
+
+from machine import Pin,PWM
+from time import sleep, sleep_ms
+from display import Display 
+import hardware
+
+oled = Display()
+
+def directions():
+    oled.text("-Applying 3.3V", 0,0)
+    oled.text("square wave", 0,16)
+    oled.text("-Check voltages", 0,32)
+    oled.text("on oscilloscope", 0,48)
+    oled.show()
+    sleep(5) 
+ 
+def runWave(waveToggle):
+    if waveToggle:
+        signal = PWM(Pin(1)) #GPIO Pin 1 for PWM output
+        signal.freq(8)
+        signal.duty_u16(32768)
+    else: #OFF
+        signal = PWM(Pin(1)) #GPIO Pin 1 for PWM output
+        signal.freq(8)
+        signal.duty_u16(0) 
+
+options = ["YES", "NO"]
+
+def showMenu(highlight):
+    oled.clear()
+    oled.text("Is peak-to-peak", 0,0)
+    oled.text("voltage ~2.5V?", 0,16)
+    
+    for row, text in enumerate(options):
+        y = 32 + row * 15            
+        if row == highlight:
+            oled.fill_rect(0, y-2, oled.width, 15, 1)
+            oled.text("> " + text, 4, y, invert=True)
+        else:
+            oled.text("> " + text, 4, y, invert= False)
+
+    oled.show()
+
+def main():
+    directions()
+
+    highlight = 0
+    showMenu(highlight)
+    runWave(True)
+
+    while True:
+        step = hardware.scrolling()    # –1, 0, or +1
+        if step != 0:
+            highlight = (highlight + step) % len(options)
+            showMenu(highlight)
+            sleep_ms(200)
+
+        if hardware.isPressed():
+            runWave(False)
+            if options[highlight] == "YES":
+                oled.clear()
+                oled.text("Passed Digital",8, 0)
+                oled.text("Level Test", 24,16)
+                oled.text("Returning to",8,32)
+                oled.text("menu", 40,48)
+                oled.show()
+                sleep(4)
+                break
+            else: #:NO
+                oled.clear()
+                oled.text("Test failed:", 16,0)
+                oled.text("Check connection", 0, 16)
+                oled.text("Returning to",16,32)
+                oled.text("menu", 48,48)
+                oled.show()
+                sleep(4)
+                break
+        sleep_ms(50)
+
+main()
+
+
