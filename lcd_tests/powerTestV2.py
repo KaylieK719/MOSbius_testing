@@ -1,5 +1,7 @@
-#Note: ADC ==> GPIO 27 (change as needed) 
-#Connect jumper between GPIO 27 to + power rail of MOSbius 
+#Notes:
+#ADC ==> GPIO 27 (change as needed) 
+#Connect jumper between GPIO 27 (Pin 32) to + power rail of MOSbius
+
 from machine import ADC, Pin
 from displayLCD import Display
 import hardwareLCD
@@ -26,7 +28,7 @@ def getReading():
 def main():
     showMenu()
     reading = getReading()
-    if (reading > 1.75) and (reading < 3.25): #test passed
+    if (reading > 2.25) and (reading < 2.75): #test passed
         display.clear()
         display.text("Passed Power Test",88, 105)
         display.text("Returning to menu", 88,120)
