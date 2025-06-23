@@ -1,5 +1,6 @@
 #Testing the digial level shifters on the MOSbius
-#Apply a 3.3V square wave and confirm that the oscilloscope reduces the intake voltage to a 2.5 square wave signal
+#Apply a 3.3V square wave and confirm that the oscilloscope
+#reduces the intake voltage to a 2.5 square wave signal
 
 from machine import Pin,PWM
 from time import sleep, sleep_ms
@@ -19,7 +20,7 @@ def directions():
 def runWave(waveToggle):
     if waveToggle:
         signal = PWM(Pin(1)) #GPIO Pin 1 for PWM output
-        signal.freq(8)
+        signal.freq(8) ##maybe a higher frequency 
         signal.duty_u16(32768)
     else: #OFF
         signal = PWM(Pin(1)) #GPIO Pin 1 for PWM output
@@ -67,7 +68,7 @@ def main():
                 oled.text("menu", 40,48)
                 oled.show()
                 sleep(4)
-                break
+                return 
             else: #:NO
                 oled.clear()
                 oled.text("Test failed:", 16,0)
@@ -76,7 +77,7 @@ def main():
                 oled.text("menu", 48,48)
                 oled.show()
                 sleep(4)
-                break
+                return 
         sleep_ms(50)
 
 main()
