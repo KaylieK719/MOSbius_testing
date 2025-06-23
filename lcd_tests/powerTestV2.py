@@ -1,4 +1,5 @@
 #Note: ADC ==> GPIO 27 (change as needed) 
+#Connect jumper between GPIO 27 to + power rail of MOSbius 
 from machine import ADC, Pin
 from displayLCD import Display
 import hardwareLCD
