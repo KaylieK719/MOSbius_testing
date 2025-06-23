@@ -2,17 +2,30 @@ from displayLCD import Display
 import hardwareLCD
 from ili9341 import color565
 from time import sleep_ms, sleep
+from machine import PWM, Pin
 
 display = Display()
 
 options = ["YES", "NO"]
 
+def runWave(waveToggle):
+    if waveToggle:
+        signal = PWM(Pin(1)) #GPIO Pin 1 for PWM output
+        signal.freq(8)
+        signal.duty_u16(32768)
+    else:
+        signal = PWM(Pin(1))
+        signal.freq(8)
+        signal.duty_u16(0) 
+        
 def showMenuDT(highlight):
     display.clear()
     display.text("Connect oscilloscope probe to DT header",0,0)
     display.text("Applying 3.3V square wave",  35,  30)
     display.text("1.Is blue LED blinking?", 35, 45)
-    display.text("2.Does scope read 2.5V signal?", 35, 60)
+    display.text("2.Does scope read 2.5V signal?", 35, 60) 
+
+    runWave(True) 
 
     for row, text in enumerate(options):
         y = 105 + row * 15            
@@ -31,7 +44,7 @@ def showMenuDT(highlight):
                 sleep_ms(200)
 
             if hardwareLCD.isPressed():
-                if options[highlight] == "YES":
+                if options[highlight] == "YES": 
                     return "CK"
                 else: #:NO
                     return "DT Fail"
@@ -42,7 +55,9 @@ def showMenuCK(highlight):
     display.text("Applying 3.3V square wave",  35,  30)
     display.text("1.Is yellow LED blinking?", 35, 45)
     display.text("2.Does scope read 2.5V signal?", 35, 60)
-
+    
+    runWave(True) 
+    
     for row, text in enumerate(options):
         y = 105 + row * 15            
         if row == highlight:
@@ -71,6 +86,8 @@ def showMenuEN(highlight):
     display.text("Applying 3.3V square wave",  35,  30)
     display.text("1.Is green LED blinking?", 35, 45)
     display.text("2.Does scope read 2.5V signal?", 35, 60)
+
+    runWave(True) 
 
     for row, text in enumerate(options):
         y = 105 + row * 15            
@@ -106,6 +123,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False) 
         currStatus = showMenuCK(highlight)
     
     if currStatus == "DT Fail": #DT test failed
@@ -116,6 +134,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False) 
         return
         
     if currStatus == "EN": #Passed CK test
@@ -126,6 +145,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False)
         currStatus = showMenuEN(highlight)
         
     if currStatus == "CK Fail": #CK test failed 
@@ -136,6 +156,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False)
         return
     
     if currStatus == "EN Passed": #Passed EN test
@@ -146,6 +167,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False) 
         return
     
     else: #EN test failed
@@ -156,6 +178,7 @@ def main():
             display.text(".", 140+i*8, 135)
             sleep(1)
         sleep(1)
+        runWave(False) 
         return  
 
 main()
