@@ -37,4 +37,4 @@ Note: This uses the ILI9341 LCD
 
 # Current testing process: 
 ![testFlow](images/testingFlow.png)
-## Run each test following this order. See [lcd_tests](lcd_tests/README.md) for setting up each test. 
+#### Run each test following this order. See [lcd_tests](lcd_tests/README.md) for setting up each test. 
