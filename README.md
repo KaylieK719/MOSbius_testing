@@ -26,6 +26,6 @@ Note: This uses the ILI9341 LCD
 
 ## External Libraries *(Download and upload to the Raspberry Pi Pico)* 
 ### 1. LCD:
-    [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
+  [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
 ### 2. OLED: 
-    [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
+  [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
