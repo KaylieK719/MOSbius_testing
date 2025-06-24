@@ -5,14 +5,14 @@
 
 ## 2. Digital Level Shifters Test 
 ### 2.1 DT Header 
-    * Connect GPIO 27 (ADC) to DT pin (left cornder)
-    * Connect GPIO 1 (signal source) to DT header (top) 
+    - Connect GPIO 27 (ADC) to DT pin (left cornder)
+    - Connect GPIO 1 (signal source) to DT header (top) 
 ### 2.2 CK Header 
-    * Connect GPIO 27 (ADC) to CK pin (left cornder)
-    * Connect GPIO 1 (signal source) to CK header (top) 
+    - Connect GPIO 27 (ADC) to CK pin (left cornder)
+    - Connect GPIO 1 (signal source) to CK header (top) 
 ### 2.3 EN Header 
-    * Connect GPIO 27 (ADC) to EN pin (left cornder)
-    * Connect GPIO 1 (signal source) to EN header (top) 
+    - Connect GPIO 27 (ADC) to EN pin (left cornder)
+    - Connect GPIO 1 (signal source) to EN header (top) 
 
 ## 3. Manual Enable Test 
   - Place jumper on EM_PU 
