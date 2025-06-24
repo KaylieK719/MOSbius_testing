@@ -1,6 +1,3 @@
-# Current testing process: 
-![testFlow](images/testingFlow.png)
-
 # Uploading Files
 ## LCD Interface:
 Note: This uses the ILI9341 LCD
@@ -31,3 +28,6 @@ Note: This uses the ILI9341 LCD
 ## OLED: 
   [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
 
+# Current testing process: 
+![testFlow](images/testingFlow.png)
+Run each test following this order. See [lcd_tests](lcd_tests/README.md) for setting up each test. 
