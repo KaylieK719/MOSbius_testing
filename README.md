@@ -30,10 +30,8 @@ Note: This uses the ILI9341 LCD
       signal = Pin(1)
 
 # External Libraries *(Download and upload to the Raspberry Pi Pico)* 
-## LCD:
-  [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
-## OLED: 
-  [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
+## LCD: [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
+## OLED: [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
 
 # Current testing process: 
 ![testFlow](images/testingFlow.png)
