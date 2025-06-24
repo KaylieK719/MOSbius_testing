@@ -1,3 +1,10 @@
+# MOSbius Testing 
+## A LCD-based interface testing the functionality of the [MOSbius chip](https://mosbius.org/0_front_matter/intro.html) 
+
+# Features 
+- Menu and test selection interface using a LCD (ILI9341) display & Rotary Encoder
+- Tests following the [testing process](https://mosbius.org/app_pcb_test/pcb_test.html) on the MOSbius website
+
 # Uploading Files
 ## LCD Interface:
 Note: This uses the ILI9341 LCD
