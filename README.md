@@ -1,9 +1,9 @@
-Current testing process: 
+## Current testing process: 
 ![testFlow](images/testingFlow.png)
-**How to use:
-1. Using LCD:
+
+## 1. Using LCD:
 Note: This uses the ILI9341 LCD
-  - Download all files in the lcd_interface folder to the Raspberry Pi Pico
+  - Download all files in the lcd_interface folder to the Raspberry Pi Pico ( [mainLCD.py](lcd_interface/mainLCD.py) [displayLCD.py](lcd_interface/displayLCD.py) [hardwareLCD.py](lcd_interface/hardwareLCD.py) [menuLCD.py](lcd_interface/menuLCD.py) [runnerLCD.py](lcd_interface/runnerLCD.py) )
   - Download all files in the lcd_tests folder
   !! NAME ALL FILES AS THEY ARE NAMED IN THE FOLDERS WHEN DOWNLOADING TO RASPBERRY PI PICO !!
   - Run mainLCD.py to start program
