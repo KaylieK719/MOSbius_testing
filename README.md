@@ -1,6 +1,5 @@
 Current testing process: 
-[Power Test (2).pdf](https://github.com/user-attachments/files/20872887/Power.Test.2.pdf)
-
+![testFlow]("C:\Users\Kayk7\Pictures\Screenshots\testingFlow.png")
 **How to use:**
 1. Using LCD:
 Note: This uses the ILI9341 LCD
