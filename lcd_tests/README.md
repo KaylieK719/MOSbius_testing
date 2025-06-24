@@ -4,7 +4,7 @@
   - Connect Raspberry Pi Pico power to LDOI header 
 
 ## 2. Digital Level Shifters Test 
-* Note: Each Header can be run individually or all at once `digitalLvlTestV2.py` * 
+*Note: Each Header can be run individually or all at once `digitalLvlTestV2.py`* 
 ### 2.1 DT Header `dtDigitalLvlTest.py` 
   - Connect GPIO 27 (ADC) to DT pin (left cornder)
   - Connect GPIO 1 (signal source) to DT header (top) 
