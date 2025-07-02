@@ -15,15 +15,14 @@ class Menu:
         self.highlight = 1
         self.shift = 0
         self.mainMenuTests = ["Test PCB", "Test Chip"]
-#NOTE: To add tests, add the test name to self.PCBTests or self.chipTests and UPDATE the HELPERFUNCTIONS.PY 
-#      module
-        self.PCBTests = ["Power Test", "Digital Level Shifter Test", "Manual Enable Test",
-                         "ALL TESTS", "BACK"]
+        self.PCBTests = ["Power Test", "Digital Level Shifter Test", "DT digitalLvl Test",
+                         "CK digitalLvl Test", "EN digitalLvl Test","Manual Enable Test",
+                         "Test PCB", "BACK"]
         self.chipTests = ["Test One", "Test Two", "Test Three", "ALL TESTS", "BACK"]
         self.files = self.mainMenuTests
         self.currMenu = "MAIN"
         self.step = 0
-
+        
     def drawMenu(self,files):
         display = self.display
         display.clear()
@@ -61,5 +60,7 @@ class Menu:
             self.drawMenu(self.files)
         #Current file selected 
         print("Selected:", self.files[self.step])
+
+
 
 
