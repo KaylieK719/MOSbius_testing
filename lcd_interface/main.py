@@ -3,12 +3,13 @@
 - Implements menu and submenu interface 
 - New BACK button to switch between menus
 - Implements new helperFunctions module (contains all test functions)
+
 #Menu imports 
 import hardwareLCD
 from displayLCD import Display
 import helperFunctions
 from ili9341 import color565 #Display import 
-from menuV2 import Menu
+from newMenu import Menu
 from runnerLCD  import launch
 from time import sleep_ms
 #ADC/Pin Imports 
@@ -17,7 +18,11 @@ from machine import ADC, Pin
 tests = {
     "Power Test": helperFunctions.runPowerTest,
     "Digital Level Shifter Test": helperFunctions.runDigitalLvlTest,
+    "DT digitalLvl Test": helperFunctions.showMenuDT,
+    "CK digitalLvl Test": helperFunctions.showMenuCK,
+    "EN digitalLvl Test": helperFunctions.showMenuEN,
     "Manual Enable Test": helperFunctions.runManualENTest
+    "Test PCB": helperFunctions.testPCB
     }
 
 def main():
@@ -57,5 +62,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
