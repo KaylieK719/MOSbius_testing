@@ -2,6 +2,7 @@
 # June 30, 2025 
 # File containing all the necessary helper functions that are used when running each test
 
+## All necessary imports
 from machine import ADC, Pin
 from time import sleep, sleep_ms
 from displayLCD import Display
@@ -286,4 +287,108 @@ def runManualENTest():
             display.text(".", 140+i*8, 135)
             sleep(1)
         return 
+
+def testPCB():
+    """
+        - Runs all tests for the PCB
+    """
+    runPowerTest()
+    sleep(1)
+    runDigitalLvlTest()
+    sleep(1)
+    runManualENTest()
+    sleep(1)
+    
+### TESTS FOR CHIP (Note: These tests are manual)
+options = ["YES", "NO"]
+def yesNoMenu(highlight):
+    for row, text in enumerate(options):
+        y = 105 + row * 15            
+        if row == highlight:
+            display.fill_rect(0,y - 2,display.width,15,color565(255, 255, 255))
+            display.text("> " + text, 136, y)
+        else:
+            display.text("> " + text, 136, y)
+        
+def nmosCurrBiasDirections():
+    display.clear()
+    display.text("Testing Current Bias Potentiometers:", 0,15)
+    display.text("1.nMOS: connect ammeter to I_REFN",0,45)
+    display.text("(bottom left)", 0,60) 
+    display.text("- Do you measure ~10 micro Amps?", 0,75)
+    
+def runNmosCurrBiasTest():
+    highlight = 0
+    nmosCurrBiasDirections()
+    yesNoMenu(highlight)
+    while True:
+        step = hardwareLCD.scrolling()    # –1, 0, or +1
+        if step != 0:
+            highlight = (highlight + step) % len(options)
+            nmosCurrBiasDirections()
+            yesNoMenu(highlight)
+            sleep_ms(200)
+
+        if hardwareLCD.isPressed():
+            if options[highlight] == "YES":
+                display.clear()
+                display.text("Passed NMOS Curr Bias Test",0, 105)
+                display.text("Launching PMOS Curr Bias Test", 0,120)
+                for i in range(3):
+                    display.text(".", 140+i*8, 135)
+                    sleep(1)
+                sleep(1)
+                runPmosCurrBiasTest()
+            else: #:NO
+                display.clear()
+                display.text("Test failed: Check connections", 40,105)
+                display.text("Returning to menu", 88,120)
+                for i in range(3):
+                    display.text(".", 140+i*8, 135)
+                    sleep(1)
+                sleep(1)
+                return
+        sleep_ms(50)
+
+def pmosCurrBiasDirections():
+    display.clear()
+    display.text("Testing Current Bias Potentiometers:", 0,15)
+    display.text("1.pMOS: connect ammeter to I_REFP",0,45)
+    display.text("(top middle)", 0,60) 
+    display.text("- Do you measure ~10 micro Amps?", 0,75)   
+
+    
+def runPmosCurrBiasTest():
+    highlight = 0
+    pmosCurrBiasDirections()
+    yesNoMenu(highlight)
+    while True:
+        step = hardwareLCD.scrolling()    # –1, 0, or +1
+        if step != 0:
+            highlight = (highlight + step) % len(options)
+            nmosCurrBiasDirections()
+            yesNoMenu(highlight)
+            sleep_ms(200)
+
+        if hardwareLCD.isPressed():
+            if options[highlight] == "YES":
+                display.clear()
+                display.text("Passed PMOS Curr Bias Test",0, 105)
+                display.text("Returning to Menu", 0,120)
+                for i in range(3):
+                    display.text(".", 140+i*8, 135)
+                    sleep(1)
+                sleep(1)
+                return
+            else: #:NO
+                display.clear()
+                display.text("Test failed: Check connections", 40,105)
+                display.text("Returning to menu", 88,120)
+                for i in range(3):
+                    display.text(".", 140+i*8, 135)
+                    sleep(1)
+                sleep(1)
+                return
+        sleep_ms(50)
+
 
