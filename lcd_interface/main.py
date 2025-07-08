@@ -1,8 +1,8 @@
 # Main.py V2
-- Combined logic for each menu and submenu screen to one function 
-- Implements menu and submenu interface 
-- New BACK button to switch between menus
-- Implements new helperFunctions module (contains all test functions)
+#- Combined logic for each menu and submenu screen to one function 
+#- Implements menu and submenu interface 
+#- New BACK button to switch between menus
+#- Implements new helperFunctions module (contains all test functions)
 
 #Menu imports 
 import hardwareLCD
