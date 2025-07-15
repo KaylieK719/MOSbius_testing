@@ -3,7 +3,6 @@
 # File containing all the necessary helper functions that are used when running each test
 # Added & fixed functions for tests 
 
-## All necessary imports
 from machine import ADC, Pin
 from time import sleep, sleep_ms
 from ili9341 import color565
@@ -12,7 +11,9 @@ import interface
 
 ## Global pin connections
 sensor = ADC(Pin(27)) #ADC GPIO 27
-signal = Pin(1,Pin.OUT) #HI/LO output GPIO 1
+dt = Pin(12,Pin.OUT)
+clk = Pin(11,Pin.OUT)
+en = Pin(10,Pin.OUT)
 
 ## Miscellaneous Functions 
 options = ["YES", "NO"]
@@ -48,11 +49,11 @@ def powerTestMenu(display):
         
     """
     display.clear()
-    display.text("Testing power supply/supply protection:", 8,15)
-    display.text("1.Place jumper on LDOO & V+",  35,  45)
-    display.text("2.Connect LDOI to power supply", 35, 75)
-    display.text("3.Supplying 3.3V to RPI Pico", 35, 105)
-    sleep(5)
+    display.text("Testing power supply:", 0,15)
+    display.text("1.Place jumper on LDOO & V+",  0 ,45)
+    display.text("2.Connect LDOI to power supply", 0, 75)
+    display.text("3.Supplying 3.3V to RPI Pico", 0, 105)
+    sleep(10)
     
 def getReading(): #MIGHT BE ABLE TO USE FOR GENERAL READINGSSS 
     """
@@ -68,7 +69,7 @@ def getReading(): #MIGHT BE ABLE TO USE FOR GENERAL READINGSSS
     print("Voltage:", volts)
     return volts 
 
-def runPowerTest(display):
+def runPowerTest(display,hardware):
     """
         Runs the PCB Power Test
         
@@ -78,14 +79,14 @@ def runPowerTest(display):
     reading = getReading()
     if (reading > 2.25) and (reading < 2.75): #test passed
         display.clear()
-        display.text("Passed Power Test",88, 105)
+        display.text("Passed Power Test",0, 105)
         display.text("Returning to menu", 88,120)
         loading(display) 
         return
     
     else:
         display.clear()
-        display.text("Test failed: Check connections", 40,105)
+        display.text("Test failed: Check connections", 0,105)
         display.text("Returning to menu", 88,120)
         loading(display)
         return
@@ -97,33 +98,33 @@ def runPowerTest(display):
 #   without having errors (doing it together seemed to produce errors in measurements)
 # - TODO: combine DT CK EN tests 
 
-def measureHI():
+def measureHI(pin):
     """
         Reads DT,CK,EN pins when signal is HI
         
         Returns value in volts (converted from u16)
     """
-    signal.value(1)
+    pin.value(1)
     reading1 = sensor.read_u16()
     sleep_ms(10)
     vHI = reading1 * 3.3 / 65535
     print(vHI)
     return vHI
 
-def measureLO():
+def measureLO(pin):
     """
         Reads DT,CK,EN pins when signal is LO
         
         Returns value in volts (converted from u16)
     """
-    signal.value(0)
+    pin.value(0)
     sleep_ms(10)
     reading2 = sensor.read_u16()
     vLO = reading2 * 3.3 / 65535
     print(vLO)
     return vLO
         
-def showMenuDT(display):
+def showMenuDT(display,hardware):
     """
         Displays directions for DT test
         
@@ -135,15 +136,15 @@ def showMenuDT(display):
     display.text("-Place jumper GPIO27 to DT",0,15)
     display.text("-Place jumper GPIO1 to DT(top)",0,45)
     display.text("Measuring high & low voltage", 0,75)
-    loading(display)
-    vHI = measureHI()
-    vLO = measureLO()
+    sleep(10)
+    vHI = measureHI(dt)
+    vLO = measureLO(dt)
 
     if ((vHI > 2.25) and (vHI < 2.75)
         and (vLO > 0.0000) and (vLO < 0.25)):
         display.clear()
-        display.text("Passed data level test",72, 105)
-        display.text("Running clock level test", 64,120)
+        display.text("Passed data level test",0, 105)
+        display.text("Running clock level test", 0,120)
         loading(display)
         return "DT Pass"
     else:
@@ -154,7 +155,7 @@ def showMenuDT(display):
         return "DT Fail"
     
 
-def showMenuCK(display):
+def showMenuCK(display,hardware):
     """
         Displays directions for CK test
         
@@ -166,24 +167,24 @@ def showMenuCK(display):
     display.text("-Place jumper GPIO27 to CK",0,15)
     display.text("-Place jumper GPIO1 to CK(top)",0,45)
     display.text("Measuring high & low voltage", 0, 75)
-    loading(display)
-    vHI = measureHI()
-    vLO = measureLO()
+    sleep(10)
+    vHI = measureHI(clk)
+    vLO = measureLO(clk)
 
     if ((vHI > 2.25) and (vHI < 2.75) and (vLO > 0) and (vLO < 0.25)):
         display.clear()
-        display.text("Passed clock level test",68, 105)
-        display.text("Running enable level test", 60,120)
+        display.text("Passed clock level test",0, 105)
+        display.text("Running enable level test", 0,120)
         loading(display)
         return "CK Pass"
     else:
         display.clear()
-        display.text("Test failed: Check connections", 40,105)
+        display.text("Test failed: Check connections", 0,105)
         display.text("Returning to menu", 52,120)
         loading(display)
         return "CK Fail"
 
-def showMenuEN(display):
+def showMenuEN(display,hardware):
     """
         Displays directions for EN test
         
@@ -195,40 +196,40 @@ def showMenuEN(display):
     display.text("-Place jumper GPIO27 to EN",0,15)
     display.text("-Place jumper GPIO1 to EN(top)",0,45)
     display.text("Measuring high & low voltage", 0, 75)
-    loading(display)
-    vHI = measureHI()
-    vLO = measureLO()
+    sleep(10)
+    vHI = measureHI(en)
+    vLO = measureLO(en)
 
     if ((vHI > 2.25) and (vHI < 2.75)
         and (vLO > 0) and (vLO < 0.25)):
         display.clear()
-        display.text("Passed enable level test",68, 105)
+        display.text("Passed enable level test",0, 105)
         display.text("Returning to menu", 52,120)
         loading(display)
         return "EN Pass"
     else:
         display.clear()
-        display.text("Test failed: Check connections", 40,105)
+        display.text("Test failed: Check connections", 0,105)
         display.text("Returning to menu", 52,120)
         loading(display)
         return "EN Fail"
 
-def runDigitalLvlTest(display):
+def runDigitalLvlTest(display,hardware):
     """
         Runs the DT,CK,and EN (in this order) digital level shifter tests
         
         Returns pass/fail
     """ 
-    currStatus = showMenuDT(display)
+    currStatus = showMenuDT(display,hardware)
     
     if currStatus == "DT Pass": #DT test passed
-        currStatus = showMenuCK(display)
+        currStatus = showMenuCK(display,hardware)
     
     if currStatus == "DT Fail": #DT test failed 
         return
         
     if currStatus == "CK Pass": #Passed CK test
-        currStatus = showMenuEN(display)
+        currStatus = showMenuEN(display,hardware)
         
     if currStatus == "CK Fail": #CK test failed 
         return
@@ -250,9 +251,9 @@ def manualENDirections(display):
     display.text("-Connect LDOI to power supply", 0, 75)
     display.text("-Place jumper on GPIO27 & EM", 0, 105)
     display.text("-Supplying 3.3V to RPI Pico", 0, 135)
-    sleep(5) 
+    sleep(10) 
     
-def runManualENTest(display):
+def runManualENTest(display,hardware):
     """
         Runs manual enable test & makes sure the measured value is
         in an appropriate range
@@ -273,15 +274,15 @@ def runManualENTest(display):
         loading(display)
         return 
 
-def testPCB(display):
+def testPCB(display,hardware):
     """
         - Runs all tests for the PCB
     """
-    runPowerTest(display)
+    runPowerTest(display,hardware)
     sleep(1)
-    runDigitalLvlTest(display)
+    runDigitalLvlTest(display,hardware)
     sleep(1)
-    runManualENTest(display)
+    runManualENTest(display,hardware)
     sleep(1)
     
 ### TESTS FOR CHIP (Note: These tests are manual
