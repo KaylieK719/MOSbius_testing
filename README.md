@@ -9,7 +9,7 @@
 ## LCD Interface:
 Note: This uses the ILI9341 LCD
   - Download all files in the lcd_interface folder to the Raspberry Pi Pico ( `main.py` `interface.py` `helperFunctions.py` `programChip.py` )
-  - Download these files from external libraries ([MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow): `MOSbius.py`) ([micropython-ili9341](https://github.com/rdagger/micropython-ili9341): `ili9341.py`)
+  - Download these files from external libraries ([MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow): `MOSbius.py`) and ([micropython-ili9341](https://github.com/rdagger/micropython-ili9341): `ili9341.py`)
     *Do NOT change the file names when downloading to the Raspberry Pi Pico*
 
 # Hardware
