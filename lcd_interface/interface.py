@@ -8,7 +8,7 @@ import helperFunctions
 
 ### DISPLAY MODULE 
 class Display:
-    def __init__(self, width=240, height=320, rotation=180, sck=14, mosi=15,miso = 8, cs=17, dc=19, rst=18):
+    def __init__(self, width=240, height=320, rotation=0, sck=14, mosi=15,miso = 8, cs=17, dc=19, rst=18):
         try:
             spi = SPI(1, baudrate=32000000, sck=Pin(sck), mosi=Pin(mosi), miso=Pin(miso))
             self.display = IliDisplay(spi, cs=Pin(cs), dc=Pin(dc), rst=Pin(rst),
@@ -76,7 +76,7 @@ class Menu:
         self.PCBTests = ["Power Test", "Digital Level Shifter Test", "DT digitalLvl Test",
                          "CK digitalLvl Test", "EN digitalLvl Test","Manual Enable Test",
                          "Test PCB", "BACK"]
-        self.chipTests = ["Current Bias Test", "3-Ring Oscillator", "Test Three", "ALL TESTS", "BACK"]
+        self.chipTests = ["Current Bias Test", "3-Ring Oscillator", "BACK"]
         self.files = self.mainMenuTests
         self.currMenu = "MAIN"
         self.step = 0
@@ -127,6 +127,7 @@ def launch(display, hardware, testName, function):
     sleep_ms(1000)
     
     function(display,hardware)
+
 
 
 
