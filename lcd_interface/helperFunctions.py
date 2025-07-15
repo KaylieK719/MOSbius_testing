@@ -134,7 +134,7 @@ def showMenuDT(display,hardware):
     """
     display.clear()
     display.text("-Place jumper GPIO27 to DT",0,15)
-    display.text("-Place jumper GPIO1 to DT(top)",0,45)
+    display.text("-Place jumper to DT(top)",0,45)
     display.text("Measuring high & low voltage", 0,75)
     sleep(10)
     vHI = measureHI(dt)
@@ -165,7 +165,7 @@ def showMenuCK(display,hardware):
     """
     display.clear()
     display.text("-Place jumper GPIO27 to CK",0,15)
-    display.text("-Place jumper GPIO1 to CK(top)",0,45)
+    display.text("-Place jumper to CK(top)",0,45)
     display.text("Measuring high & low voltage", 0, 75)
     sleep(10)
     vHI = measureHI(clk)
@@ -194,7 +194,7 @@ def showMenuEN(display,hardware):
     """
     display.clear()
     display.text("-Place jumper GPIO27 to EN",0,15)
-    display.text("-Place jumper GPIO1 to EN(top)",0,45)
+    display.text("-Place jumper to EN(top)",0,45)
     display.text("Measuring high & low voltage", 0, 75)
     sleep(10)
     vHI = measureHI(en)
@@ -249,7 +249,7 @@ def manualENDirections(display):
     display.text("Testing manual enable:", 0,15)
     display.text("-Place jumper on EM_PU", 0,  45) 
     display.text("-Connect LDOI to power supply", 0, 75)
-    display.text("-Place jumper on GPIO27 & EM", 0, 105)
+    display.text("-Place jumper on GPIO27 to EM", 0, 105)
     display.text("-Supplying 3.3V to RPI Pico", 0, 135)
     sleep(10) 
     
@@ -400,4 +400,5 @@ def runThreeROTest(display,hardware):
                 loading(display)
                 return
         sleep_ms(50)
+
 
