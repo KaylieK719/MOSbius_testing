@@ -20,3 +20,12 @@
     - Place jumper on EM_PU 
     - Connect LDOI to + power rail inserted into the breadboard
     - Connect GPIO 27 (ADC) to EM pin (left corner) 
+
+## 2. Chip Tests: insert chip into board AFTER PCB tests 
+### 2.1 Current Bias Potentiometer Test *Note: includes both NMOS and PMOS potentiometer tests* 
+    - Connect ammeter to `I_REFN` or `I_REFP`
+    - Use screwdriver to change resistance of potentiometers
+### 2.2 Ring Oscillator Test 
+    - Connect power, dt, clk, en jumpers to headers
+    - Connect oscilloscope probes (using ADALM2000) to each stage 
+  
