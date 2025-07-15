@@ -16,18 +16,21 @@ Note: This uses the ILI9341 LCD
 ### LCD Hardware (change as needed)
     Pins for Rotary Encoder:
       sw = Pin(13) 
-      dt = Pin(14)
-      clk = Pin(15)
+      dt = Pin(20)
+      clk = Pin(21)
     Pins for LCD Display
-      COPI (coordinator out participant in) = Pin(19)
-      CIPO (coordinator in participant out) = Pin(16)
-      cs = Pin(26)
-      dc = Pin(28)
-      sck = Pin(18)
-      rst = Pin(6)
+      COPI (coordinator out participant in) = Pin(15)
+      CIPO (coordinator in participant out) = Pin(8)
+      cs = Pin(17)
+      dc = Pin(19)
+      sck = Pin(14)
+      rst = Pin(18)
     Pins for tests:
       ADC = Pin(27)
-      signal = Pin(1)
+      (For pin headers): 
+      dt = Pin(12) 
+      clk = Pin(11) 
+      en = Pin(10) 
 
 # External Libraries *(Download and upload to the Raspberry Pi Pico)* 
 ## LCD: [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
