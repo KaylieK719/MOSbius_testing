@@ -32,7 +32,7 @@ Note: This uses the ILI9341 LCD
       clk = Pin(11) 
       en = Pin(10) 
 
-# External Libraries *(Download and upload to the Raspberry Pi Pico)* 
+# External Libraries:
 ## LCD: [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
 ## OLED: [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
 
