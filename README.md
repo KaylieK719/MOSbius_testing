@@ -22,7 +22,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 ## Features
 
-- Automated power supply + power supply protection circuit test  
+- Automated **power supply + power supply protection** circuit test  
 - Automated sequential **DT/CK/EN** digital-level shifter tests  
 - Automatted **Manual enable** voltage test  
 - Full run of **full PCB test suite**  
