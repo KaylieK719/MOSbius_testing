@@ -8,9 +8,8 @@ A collection of MicroPython helper functions for running automated tests on the 
 - [Requirements](#requirements)  
 - [Installation](#installation)  
 - [Usage](#usage)  
-- [Helper Functions Overview](#helper-functions-overview)  
-  - [Global Setup](#global-setup)  
-  - [UI & Timing Helpers](#ui--timing-helpers)  
+- [Testing Proceedure](#testing-proceedure)
+  - [Testing Setup](#setup)  
   - [Power-Supply Test](#power-supply-test)  
   - [Digital Level-Shifter Tests](#digital-level-shifter-tests)  
   - [Manual Enable Test](#manual-enable-test)  
@@ -57,3 +56,6 @@ A collection of MicroPython helper functions for running automated tests on the 
    ```bash
    # From REPL on the Pico
    import ili9341, machine, time, interface, programChip
+
+## Testing Proceedure  
+1. In progress
