@@ -1,41 +1,58 @@
-# MOSbius Testing 
-### A LCD-based interface testing the functionality of the [MOSbius chip](https://mosbius.org/0_front_matter/intro.html) 
+# MOSbius Test Helper Functions
 
-# Features 
-- Menu and test selection interface using a LCD (ILI9341) display & Rotary Encoder
-- Tests following the [testing process](https://mosbius.org/app_pcb_test/pcb_test.html) on the MOSbius website
+A collection of MicroPython helper functions for running automated tests on the MOSbius PCB and on-chip modules (ring oscillator, current bias, etc.) via a Raspberry Pi Pico and an ILI9341 display.
 
-# Uploading Files
-## LCD Interface:
-Note: This uses the ILI9341 LCD
-  - Download all files in the lcd_interface folder to the Raspberry Pi Pico ( `main.py` `interface.py` `helperFunctions.py` `programChip.py` )
-  - Download these files from external libraries ([MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow): `MOSbius.py`) and ([micropython-ili9341](https://github.com/rdagger/micropython-ili9341): `ili9341.py`)
-    *Do NOT change the file names when downloading to the Raspberry Pi Pico*
+## Table of Contents
 
-# Hardware
-### LCD Hardware (change as needed)
-    Pins for Rotary Encoder:
-      sw = Pin(13) 
-      dt = Pin(20)
-      clk = Pin(21)
-    Pins for LCD Display
-      COPI (coordinator out participant in) = Pin(15)
-      CIPO (coordinator in participant out) = Pin(8)
-      cs = Pin(17)
-      dc = Pin(19)
-      sck = Pin(14)
-      rst = Pin(18)
-    Pins for tests:
-      ADC = Pin(27)
-      (For pin headers): 
-      dt = Pin(12) 
-      clk = Pin(11) 
-      en = Pin(10) 
+- [Features](#features)  
+- [Requirements](#requirements)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Helper Functions Overview](#helper-functions-overview)  
+  - [Global Setup](#global-setup)  
+  - [UI & Timing Helpers](#ui--timing-helpers)  
+  - [Power-Supply Test](#power-supply-test)  
+  - [Digital Level-Shifter Tests](#digital-level-shifter-tests)  
+  - [Manual Enable Test](#manual-enable-test)  
+  - [Full PCB Test Suite](#full-pcb-test-suite)  
+  - [On-Chip Manual Tests](#on-chip-manual-tests)  
+- [License](#license)
 
-# External Libraries:
-## LCD: [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
-## OLED: [rdagger/micropython-ssd1306](https://github.com/rdagger/micropython-ssd1306)
+---
 
-# Current testing process: 
-![testFlow](images/testingFlow.png)
-#### Run each test following this order. See [lcd_tests](lcd_tests/README.md) for setting up each test. 
+## Features
+
+- Automated **power rail** voltage check  
+- Sequential **DT/CK/EN** digital-level shifter tests  
+- **Manual enable** voltage test  
+- One-button run of **full PCB test suite**  
+- Interactive **NMOS/PMOS current bias** confirmation  
+- Interactive **ring oscillator** scope-based waveform check  
+
+---
+
+## Requirements
+
+- Raspberry Pi Pico (or compatible RP2040 board)  
+- MOSbius PCB programmed via `programChip` module  
+- ILI9341 SPI display  
+- MicroPython firmware  
+- ADC wiring:  
+  - Orange → pin 27 (sensorO)  
+  - Green  → pin 26 (sensorG)  
+  - Yellow → pin 28 (sensorY)  
+- Output pins:  
+  - DT → pin 12  
+  - CK → pin 11  
+  - EN → pin 10  
+
+---
+
+## Installation
+
+1. Clone or download this repository.  
+2. Copy `helperFunctions.py` into your Pico’s filesystem.  
+3. Ensure dependencies are installed on the Pico:  
+   ```bash
+   # From REPL on the Pico
+   import ili9341, machine, time, interface, programChip
