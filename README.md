@@ -52,8 +52,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 ## Installation
 
-1. Clone or download this repository.  
-2. Copy `helperFunctions.py` into your Pico’s filesystem.  
+1. Download and copy ALL FILES in `lcd_interface` folder onto your Pico's filesystem (DO NOT CHANGE FILE NAMES)
 3. Ensure dependencies are installed on the Pico:  
    ```bash
    # From REPL on the Pico
