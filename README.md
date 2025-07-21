@@ -34,20 +34,15 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 - Raspberry Pi Pico (or compatible RP2040 board)    
 - ILI9341 SPI display  
-- MicroPython firmware [Thonny](https://thonny.org/)
-- External Libraries:
-  - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
-  - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
-
+- MicroPython firmware [Thonny](https://thonny.org/) (follow the website's directions for installation)
 ---
 
 ## Installation
 
 1. Download and copy ALL FILES in `lcd_interface` folder onto your Pico's filesystem (DO NOT CHANGE FILE NAMES)
-3. Ensure dependencies are installed on the Pico:  
-   ```bash
-   # From REPL on the Pico
-   import ili9341, machine, time, interface, programChip
+2. Download and copy external libraries onto your Pico's filesystem:
+  - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
+  - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
 
 ## MISC (TBE)
 - ADC wiring:  
