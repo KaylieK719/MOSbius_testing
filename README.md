@@ -36,7 +36,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 - ILI9341 SPI display  
 - MicroPython firmware
 - External Libraries:
-  - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341)
+  - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
   - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
 - ADC wiring:  
   - Orange → pin 27 (sensorO)  
