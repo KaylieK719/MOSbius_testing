@@ -34,7 +34,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 - Raspberry Pi Pico (or compatible RP2040 board)    
 - ILI9341 SPI display  
-- MicroPython firmware (Thonny) [Installation Link](https://thonny.org/)
+- MicroPython firmware (Thonny) [Download Here](https://thonny.org/)
 - External Libraries:
   - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
   - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
