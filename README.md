@@ -31,14 +31,12 @@ A collection of MicroPython helper functions for running automated tests on the 
 ---
 
 ## Requirements
-
 - Raspberry Pi Pico (or compatible RP2040 board)    
 - ILI9341 SPI display  
 - MicroPython firmware [Thonny](https://thonny.org/) (follow the website's directions for installation)
 ---
 
 ## Installation
-
 1. Download and copy ALL FILES in `lcd_interface` folder onto your Pico's filesystem (DO NOT CHANGE FILE NAMES)
 2. Download and copy the following files from external libraries onto your Pico's filesystem:
   - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
