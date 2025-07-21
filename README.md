@@ -38,14 +38,6 @@ A collection of MicroPython helper functions for running automated tests on the 
 - External Libraries:
   - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
   - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
-- ADC wiring:  
-  - Orange → pin 27 (sensorO)  
-  - Green  → pin 26 (sensorG)  
-  - Yellow → pin 28 (sensorY)  
-- Output pins:  
-  - DT → pin 12  
-  - CK → pin 11  
-  - EN → pin 10  
 
 ---
 
@@ -56,6 +48,16 @@ A collection of MicroPython helper functions for running automated tests on the 
    ```bash
    # From REPL on the Pico
    import ili9341, machine, time, interface, programChip
+
+## MISC (TBE)
+- ADC wiring:  
+  - Orange → pin 27 (sensorO)  
+  - Green  → pin 26 (sensorG)  
+  - Yellow → pin 28 (sensorY)  
+- Output pins:  
+  - DT → pin 12  
+  - CK → pin 11  
+  - EN → pin 10  
 
 ## Testing Proceedure  
 1. In progress
