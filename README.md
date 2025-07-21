@@ -40,7 +40,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 ## Installation
 
 1. Download and copy ALL FILES in `lcd_interface` folder onto your Pico's filesystem (DO NOT CHANGE FILE NAMES)
-2. Download and copy files from external libraries onto your Pico's filesystem:
+2. Download and copy the following files from external libraries onto your Pico's filesystem:
   - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
   - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
 
