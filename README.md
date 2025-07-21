@@ -22,9 +22,9 @@ A collection of MicroPython helper functions for running automated tests on the 
 ## Features
 
 - Automated **power supply + power supply protection** circuit test  
-- Automated sequential **DT/CK/EN** digital-level shifter tests  
+- Automated sequential **DT/CK/EN** header digital-level shifter tests  
 - Automatted **Manual enable** voltage test  
-- Full run of **full PCB test suite**  
+- Full run of **PCB test**  
 - Interactive **NMOS/PMOS current bias** confirmation  
 - Interactive **ring oscillator** scope-based waveform check  
 
@@ -34,7 +34,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 - Raspberry Pi Pico (or compatible RP2040 board)    
 - ILI9341 SPI display  
-- MicroPython firmware
+- MicroPython firmware (Thonny) [https://thonny.org/](Download) 
 - External Libraries:
   - LCD → [rdagger micropython-ili9341](https://github.com/rdagger/micropython-ili9341) (`ili9341.py`)
   - MOSbius MicroPython Flow → [Jianxun MOSbius_MicroPython_Flow](https://github.com/Jianxun/MOSbius_MicroPython_Flow) (`MOSbius.py`) 
