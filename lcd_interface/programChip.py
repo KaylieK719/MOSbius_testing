@@ -23,7 +23,7 @@ def program():
         chip = MOSbius.mosbius_mk1()
 
     # Select connections file
-    filename_connections = 'threeROConnections.json'
+    filename_connections = 'everything_RO.json'
     
     with open(filename_connections,'r') as file:
         dict_connections = json.load(file)
@@ -37,6 +37,5 @@ def program():
     
     chip.program_bitstream()
 
-# if __name__ == "__main__":
-#     main()
-program()
+
+
