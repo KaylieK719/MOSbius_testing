@@ -4,7 +4,8 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 ## Table of Contents
 
-- [Features](#features)  
+- [Features](#features)
+- [Schematics](#Schematics)
 - [Requirements](#requirements)  
 - [Installation](#installation)  
 - [Usage](#usage)  
@@ -27,6 +28,10 @@ A collection of MicroPython helper functions for running automated tests on the 
 - Full run of **PCB test**  
 - Interactive **NMOS/PMOS current bias** confirmation  
 - Interactive **ring oscillator** scope-based waveform check  
+
+---
+## Schematics 
+![Testing Board Schematic](images/MOSbius_testing_pcb_v1.pdf)
 
 ---
 
