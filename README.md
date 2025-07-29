@@ -31,7 +31,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 
 ---
 ## Schematics 
-![Testing Board Schematic](images/MOSbius_testing_pcb_v1.pdf)
+!(images/MOSbius_testing_pcb_v1.pdf)
 
 ---
 
