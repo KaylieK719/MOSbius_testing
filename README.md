@@ -5,7 +5,7 @@ A collection of MicroPython helper functions for running automated tests on the 
 ## Table of Contents
 
 - [Features](#features)
-- [Schematics](#Schematics)
+- [Schematics](#Schematics (To be updated))
 - [Requirements](#requirements)  
 - [Installation](#installation)  
 - [Usage](#usage)  
