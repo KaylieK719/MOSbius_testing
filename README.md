@@ -30,9 +30,8 @@ A collection of MicroPython helper functions for running automated tests on the 
 - Interactive **ring oscillator** scope-based waveform check  
 
 ---
-## Schematics 
+## Schematics (To be updated)
 ![Test Board Schematic](images/MOSbius_testing_pcb_v1.png.png)
-** To be updated **
 ---
 
 ## Requirements
