@@ -5,7 +5,7 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 ## Table of Contents
 
 - [Features](#features)
-- [Schematics](#Schematics (To be updated))
+- [Schematics & Layout](#Schematics&Layout)
 - [Requirements](#requirements)  
 - [Installation](#installation)  
 - [Usage](#usage)  
