@@ -1,6 +1,6 @@
 # MOSbius Testing Interface
 
-A collection of MicroPython helper functions for running automated tests on the MOSbius PCB and on-chip modules (ring oscillator, current bias, etc.) via a Raspberry Pi Pico and an ILI9341 display. This interface tests the functionality of the [MOSBius](https://mosbius.org/0_front_matter/intro.html) PCB and chip.
+A collection of MicroPython programs for running automated tests on the MOSbius PCB and on-chip modules (ring oscillator, current bias, etc.) via a Raspberry Pi Pico and an ILI9341 display. This interface tests the functionality of the [MOSBius](https://mosbius.org/0_front_matter/intro.html) PCB and chip.
 
 ## Table of Contents
 
