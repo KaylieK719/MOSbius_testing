@@ -67,11 +67,11 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 
 ### 2. Digital Level Shifter Tests
 - Connect wires:  
-  - **Pin 1 → DT (LEFT header)**  
-  - **Pin 2 → CK (LEFT header)**  
-  - **Pin 3 → EN (LEFT header)**  
+  - **Pin 28 → DT (LEFT header)**  
+  - **Pin 26 → CK (LEFT header)**  
+  - **Pin 32 → EN (LEFT header)**  
 - Connect wires:  
-  - **Pin 4, Pin 5, Pin 6 → TOP headers** on PCB.  
+  - **Pin 12, Pin 11, Pin 10 → TOP headers (DT,CK,EN respectively)** on PCB.  
 - Select **“Digital Level Shifter Test”** on the menu.  
   - **DT (blue), CK (yellow), and EN (green)** LEDs should flash.  
 - *Note: individual level shifter tests are available as separate menu options.*
