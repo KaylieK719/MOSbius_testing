@@ -59,4 +59,4 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
   - EN → pin 10  
 
 ## Testing Proceedure  
-1. In progress
+1. 
