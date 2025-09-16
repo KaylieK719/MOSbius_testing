@@ -90,7 +90,8 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 - Place a wire or jumper on the **EM_PU headers** on the MOSbius PCB.  
 - Connect a wire from **EN (LEFT header)** to **EM (LEFT header)**.  
 - Select **“Manual Enable Test”** on the menu.  
-  - The **Orange LED** should flash.  
+  - The **Orange LED** should flash.
+![Manual Demo](images/manual_demo.jpg)
 
 ---
 
@@ -103,11 +104,13 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 - Connect a **current meter** to the `+` and `-` terminals.  
 - Turn the dial on the potentiometer until current ≈ **100 mA**.  
 - *A menu test is provided, but is not required to perform this check.*  
-
+![Curr Pot Demo](images/curr_pot_demo.jpg)
 ---
 
 ### 2. Everything-Ring Oscillator Test
 - Connect oscilloscope probes to **any two points** in the circuit.  
   - Example: **pins 16 & 55**.  
-- Confirm the observed **waveform** looks correct.  
+- Confirm the observed **waveform** looks correct.
+![Everything RO Demo](images/ringO_demo1.jpg)
+![Everything RO Demo2](images/ringO_demo2.jpg)
 
