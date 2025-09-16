@@ -10,12 +10,6 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 - [Installation](#installation)  
 - [Usage](#usage)  
 - [Testing Proceedure](#testing-proceedure)
-  - [Testing Setup](#setup)  
-  - [Power-Supply Test](#power-supply-test)  
-  - [Digital Level-Shifter Tests](#digital-level-shifter-tests)  
-  - [Manual Enable Test](#manual-enable-test)  
-  - [Full PCB Test Suite](#full-pcb-test-suite)  
-  - [On-Chip Manual Tests](#on-chip-manual-tests)  
 - [License](#license)
 
 ---
