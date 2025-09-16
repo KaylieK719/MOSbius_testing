@@ -96,7 +96,7 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 ---
 
 ## Part 2: Chip Testing  
-⚠️ Must be done **after PCB testing**.
+!!! Must be done **after PCB testing**.
 
 ### 1. Current Bias Potentiometers
 - **NMOS Bias**: Bottom Left Potentiometer  
