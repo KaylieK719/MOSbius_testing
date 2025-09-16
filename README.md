@@ -32,7 +32,8 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 ---
 ## Schematics & Layout
 ![Test Board Schematic](images/test_board_final_schematic_highres.png)
-![Test Board Layout](images/MOSbius_testing_pcb_v2_front.png)
+![Test Board Layout F](images/MOSbius_testing_pcb_v2_front.png)
+![Test Board Layout B](images/MOSbius_testing_pcb_v2_back.png)
 ---
 
 ## Requirements
