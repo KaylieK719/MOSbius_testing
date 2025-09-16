@@ -66,7 +66,8 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 - Connect a wire between **pin 32 (GP27)** and the **+ header** near the MOSbius PCB socket.  
 - Connect another wire between the **power pins of the Raspberry Pi** and the **LDOI header** on the MOSbius PCB.  
 - Select the **“Power Test”** option on the menu.  
-  - The **Red LED** should flash.  
+  - The **Red LED** should flash.
+![Power Test Demo](images/power_demo.jpg)
 
 ---
 
@@ -79,7 +80,9 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
   - **Pin 4, Pin 5, Pin 6 → TOP headers** on PCB.  
 - Select **“Digital Level Shifter Test”** on the menu.  
   - **DT (blue), CK (yellow), and EN (green)** LEDs should flash.  
-- *Note: individual level shifter tests are available as separate menu options.*  
+- *Note: individual level shifter tests are available as separate menu options.*
+![DT Test Demo](images/dt_demo1.jpg)
+![DT Test Demo2](images/dt_demo2.jpg)
 
 ---
 
