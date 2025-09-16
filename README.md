@@ -30,8 +30,8 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
 - Interactive **ring oscillator** scope-based waveform check  
 
 ---
-## Schematics (To be updated)
-![Test Board Schematic](images/test_board_final_schematic.pdf)
+## Schematics 
+![Test Board Schematic](images/test_board_final_schematic_highres.png)
 ---
 
 ## Requirements
