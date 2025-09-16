@@ -59,4 +59,52 @@ A collection of MicroPython programs for running automated tests on the MOSbius 
   - EN → pin 10  
 
 ## Testing Proceedure  
-1. 
+## Part 1: PCB Testing
+
+### 1. Power Supply / Supply Protection
+- Place a jumper between **V++** and **LDOO** headers on the MOSbius PCB.  
+- Connect a wire between **pin 32 (GP27)** and the **+ header** near the MOSbius PCB socket.  
+- Connect another wire between the **power pins of the Raspberry Pi** and the **LDOI header** on the MOSbius PCB.  
+- Select the **“Power Test”** option on the menu.  
+  - The **Red LED** should flash.  
+
+---
+
+### 2. Digital Level Shifter Tests
+- Connect wires:  
+  - **Pin 1 → DT (LEFT header)**  
+  - **Pin 2 → CK (LEFT header)**  
+  - **Pin 3 → EN (LEFT header)**  
+- Connect wires:  
+  - **Pin 4, Pin 5, Pin 6 → TOP headers** on PCB.  
+- Select **“Digital Level Shifter Test”** on the menu.  
+  - **DT (blue), CK (yellow), and EN (green)** LEDs should flash.  
+- *Note: individual level shifter tests are available as separate menu options.*  
+
+---
+
+### 3. Manual Enable Test
+- Place a wire or jumper on the **EM_PU headers** on the MOSbius PCB.  
+- Connect a wire from **EN (LEFT header)** to **EM (LEFT header)**.  
+- Select **“Manual Enable Test”** on the menu.  
+  - The **Orange LED** should flash.  
+
+---
+
+## Part 2: Chip Testing  
+⚠️ Must be done **after PCB testing**.
+
+### 1. Current Bias Potentiometers
+- **NMOS Bias**: Bottom Left Potentiometer  
+- **PMOS Bias**: Top Middle Potentiometer  
+- Connect a **current meter** to the `+` and `-` terminals.  
+- Turn the dial on the potentiometer until current ≈ **100 mA**.  
+- *A menu test is provided, but is not required to perform this check.*  
+
+---
+
+### 2. Everything-Ring Oscillator Test
+- Connect oscilloscope probes to **any two points** in the circuit.  
+  - Example: **pins 16 & 55**.  
+- Confirm the observed **waveform** looks correct.  
+
